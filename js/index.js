@@ -1,4 +1,5 @@
 // Your code goes here
+
 // mouseover
 const navigationLinks = Array.from(document.getElementsByClassName('nav-link'));
 
@@ -15,16 +16,52 @@ navigationLinks.forEach(link => {
 });
 
 // keydown
-const buttons = Array.from(document.getElementsByClassName('btn'));
+const buttons = document.querySelectorAll('.btn');
 
-// function changeButtonsColor () {
-    buttons.forEach (button => {
-        document.addEventListener("keydown", e => {
-            button.style.background ="black";
-        });
-        document.addEventListener("keyup", e => {
-            button.style.background ="red";
-        });
+buttons.forEach (button => {
+    document.addEventListener("keydown", e => {
+        button.style.background ="black";
     });
-// };
-changeButtonsColor();
+    document.addEventListener("keyup", e => {
+        button.style =". btn";
+    })
+});
+
+document.addEventListener('click', e => 
+    buttons.forEach (button => {
+        button.style.color = "red"
+    }))
+
+
+// wheel
+
+
+// load
+
+// focus
+// resize
+// scroll
+let last_known_scroll_position = 0;
+let ticking = false;
+
+function doSomething(scroll_pos) {
+  console.log(`Ahmed scrolled to ${scroll_pos}`)
+}
+
+window.addEventListener('scroll', function(e) {
+  last_known_scroll_position = window.scrollY;
+
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      doSomething(last_known_scroll_position);
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+});
+
+
+// select
+// dblclick
+// drag and drop
